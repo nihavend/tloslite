@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package com.likya.tlos;
+package com.likya.tlos.utils;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
