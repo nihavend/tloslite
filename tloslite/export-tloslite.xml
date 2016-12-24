@@ -3,29 +3,31 @@
 	
 	<property name="version" value="1.8.2" />
 	
-	<property name="m2repo.dir" value="/Users/serkan/.m2/repository" />
+	<property name="lib.dir" value="/Users/serkan/git/tloslitegroup/tloslite-libs/libs" />
 	<property name="dest.dir" value="/Users/serkan/Desktop/tloslite_export-${version}" />
 	<property name="src.dir" value="/Users/serkan/git/tloslite/tloslite" />
 	
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <target name="create_run_jar">
+    	
     	<delete dir="${dest.dir}"/>
 
         <mkdir dir="${dest.dir}/lib"/>
+        <copy file="/Users/serkan/git/tloslite/tloslite/tloslite-${version}.jar" todir="${dest.dir}/"/>
         <copy file="/Users/serkan/git/tloslite/tloslitemodel/tloslite-model-${version}.jar" todir="${dest.dir}/lib"/>
         <copy file="/Users/serkan/git/tloslite/tlosliteutils/tloslite-utils-${version}.jar" todir="${dest.dir}/lib"/>
 
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/commons-codec-1.4.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/commons-lang-2.6.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/jmxremote_optional.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/jxl.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/log4j-1.2.15.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/mailapi.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/tlostestjob.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/winp.jar" todir="${dest.dir}/lib"/>
-    	<copy file="/Users/serkan/git/tloslite/tloslite-libs/winp.dll" todir="${dest.dir}/lib"/>
-       	<copy file="/Users/serkan/git/tloslite/tloslite-libs/winp.x64.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/commons-codec-1.4.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/commons-lang-2.6.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/jmxremote_optional.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/jxl.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/log4j-1.2.15.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/mailapi.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/tlostestjob.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/winp.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/winp.dll" todir="${dest.dir}/lib"/>
+       	<copy file="${lib.dir}/winp.x64.dll" todir="${dest.dir}/lib"/>
    	
        	<copy file="${src.dir}/start-no-tr.bat" todir="${dest.dir}"/>
     	<chmod file="${dest.dir}/start.sh" perm="ugo+rx"/>
@@ -37,6 +39,11 @@
     	<chmod file="${dest.dir}/start.sh" perm="ugo+rx"/>
        		
        	<copy file="${src.dir}/README.txt" todir="${dest.dir}"/>
+
+    	<copy file="${src.dir}/lisans.html" todir="${dest.dir}"/>
+    	
+    	<copy file="${src.dir}/TlosConfig.xml" todir="${dest.dir}"/>
+    	<copy file="${src.dir}/senaryoBilgileri.xml" todir="${dest.dir}"/>
 
     	<delete dir="/Users/serkan/Desktop/tlosliteDist"/>
     	<mkdir dir="/Users/serkan/Desktop/tlosliteDist"/>

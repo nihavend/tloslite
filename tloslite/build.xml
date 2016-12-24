@@ -1,9 +1,9 @@
 <project name="tloslite" default="build-all" basedir=".">
-	
+
 	<property name="appname" value="tloslite" />
 
 	<property file="build.properties" />
-	
+
 	<property name="src.dir" value="src" />
 	<property name="build.dir" value="bin" />
 	<property name="webapp.dir" value="." />
@@ -15,21 +15,22 @@
 		<property name="minor.number" value="" />
 		<property name="buildchar" value="" />
 	</target>
-	
+
 	<target name="init2" if="minor.number">
 		<property name="buildchar" value="_b" />
 	</target>
-	
+
 	<!-- war, jar, ear files -->
-	
+
 	<target name="jar" depends="compile">
 		<property name="jar" value="${appname}-${version.num}${buildchar}${minor.number}.jar" />
-		
+
+
 		<manifest file="MANIFEST.MF">
 			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
-			<attribute name="Class-Path" value="lib/tloslite-model-${version.num}${buildchar}${minor.number}.jar lib/mailapi.jar lib/activation.jar lib/smtp.jar lib/log4j-1.2.15.jar lib/VFSMSManager.jar lib/commons-lang-2.0-20041007T2305.jar lib/jmxremote_optional.jar lib/jmxremote.jar lib/rmissl.jar lib/winp.jar lib/commons-codec-1.4.jar lib/jxl.jar" />
-		</manifest>  
-		
+			<attribute name="Class-Path" value="lib/licenselib-${version.num}${buildchar}${minor.number}.jar lib/tloslite-model-${version.num}${buildchar}${minor.number}.jar lib/tloslite-utils-${version.num}${buildchar}${minor.number}.jar lib/mailapi.jar lib/activation.jar lib/smtp.jar lib/log4j-1.2.15.jar lib/VFSMSManager.jar lib/commons-lang-2.0-20041007T2305.jar lib/jmxremote_optional.jar lib/jmxremote.jar lib/rmissl.jar lib/winp.jar lib/commons-codec-1.4.jar lib/jxl.jar" />		
+		</manifest>
+
 		<jar jarfile="${jar}" manifest="MANIFEST.MF">
 			<fileset dir="${build.classes.dir}">
 				<include name="**/*" />
@@ -39,7 +40,7 @@
 				<include name="lib/*.jar" />
 			</fileset>
 		</jar>
-		
+
 		<property name="src.jar" value="${appname}-src-${version.num}${buildchar}${minor.number}.jar" />
 		<jar jarfile="${src.jar}">
 			<fileset dir="${src.dir}">
@@ -55,7 +56,7 @@
 	<!-- compilation options -->
 
 	<target name="compile" depends="clean">
-		<path id="build.path">
+		<!--path id="build.path">
 			<pathelement location="${build.classes.dir}" />
 			<pathelement location="${sharedlib.dir}/log4j/log4j-1.2.15.jar" />
 			<pathelement location="${sharedlib.dir}/javamail/mail.jar" />
@@ -67,6 +68,20 @@
 			<pathelement location="${sharedlib.dir}/winp/winp.jar" />
 			<pathelement location="${sharedlib.dir}/winp/winp.dll" />
 			<pathelement location="${sharedlib.dir}/winp/winp.x64.dll" />
+		</path-->
+		
+		<path id="build.path">
+			<pathelement location="${build.classes.dir}" />
+			<pathelement location="${lib.dir}/log4j-1.2.15.jar" />
+			<pathelement location="${lib.dir}/mailapi.jar" />
+			<pathelement location="${lib.dir}/commons-lang-2.6.jar" />
+			<pathelement location="${lib.dir}/commons-codec-1.4.jar" />
+			<pathelement location="${lib.dir}/jxl.jar" />
+			<pathelement location="${tlosLiteModel.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
+			<pathelement location="${tlosLiteUtils.dir}/tloslite-utils-${version.num}${buildchar}${minor.number}.jar" />
+			<pathelement location="${lib.dir}/winp.jar" />
+			<pathelement location="${lib.dir}/winp.dll" />
+			<pathelement location="${lib.dir}/winp.x64.dll" />
 		</path>
 		
 		<mkdir dir="${build.classes.dir}" />
@@ -75,23 +90,23 @@
 			<fileset dir="${src.dir}/webroot" />
 		</copy>
 		<copy file="${src.dir}/log4j.dtd" todir="${build.classes.dir}" />
-		<copy file="${src.dir}/log4j.xml" todir="${build.classes.dir}" />	
+		<copy file="${src.dir}/log4j.xml" todir="${build.classes.dir}" />
 		<copy file="${src.dir}/tlos.xsl" todir="${build.classes.dir}" />
-			
+
 		<javac encoding="UTF-8" includeantruntime="false" srcdir="${src.dir}" destdir="${build.classes.dir}" debug="on" deprecation="on" classpathref="build.path" optimize="off" includes="**" />
 		<native2ascii encoding="UTF-8" src="src" dest="${build.classes.dir}"
 				 		   includes="**/*.properties" ext=".properties"/>
 	</target>
-	
-    <target name="clean">
-        <delete quiet="true">
-            <fileset dir="${build.dir}/" includes="**/*" />
-        </delete>
+
+	<target name="clean">
+		<delete quiet="true">
+			<fileset dir="${build.dir}/" includes="**/*" />
+		</delete>
 		<delete>
 			<fileset dir="." includes="**/TlosLite*.jar" />
 		</delete>
 		<delete file="MANIFEST.MF"/>
-    </target>
+	</target>
 
 	<target name="build-all" depends="init,jar">
 	</target>

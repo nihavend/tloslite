@@ -85,4 +85,6 @@ scheduledDays(opsiyonel, varsayılan : 1,2,3,4,5,6,7) : Çalışma günleri, Tlo
 <entry key="jmxIp">0.0.0.0</entry>
 <entry key="jmxPort">3002</entry>
 
+<entry key="clientLib">com.likya.license.LicenseManager</entry>
+
 </properties>

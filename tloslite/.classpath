@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tloslitemodel"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tlosliteutils"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/licenselib"/>
 	<classpathentry kind="lib" path="/tloslite-libs/libs/commons-codec-1.4.jar"/>
 	<classpathentry kind="lib" path="/tloslite-libs/libs/commons-lang-2.6.jar"/>
 	<classpathentry kind="lib" path="/tloslite-libs/libs/jmxremote_optional.jar"/>
@@ -13,5 +11,6 @@
 	<classpathentry kind="lib" path="/tloslite-libs/libs/mailapi.jar"/>
 	<classpathentry kind="lib" path="/tloslite-libs/libs/tlostestjob.jar"/>
 	<classpathentry kind="lib" path="/tloslite-libs/libs/winp.jar"/>
+	<classpathentry kind="lib" path="/tlosliteutils/tloslite-utils-1.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
