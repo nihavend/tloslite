@@ -49,27 +49,6 @@ public class Tlos {
 		TlosServer.println(LocaleMessages.getString("Tlos.9") + " => " + Tlos.class.getProtectionDomain().getCodeSource().getLocation().getFile());
 		TlosServer.println();
 		
-		boolean isClientInfoLibNameDefined = true;
-		
-		if (isClientInfoLibNameDefined) {
-			
-			ClientInfo clientInfo = loadClientInfoLib("com.likya.license.LicenseManager");
-			
-			try {
-				try {
-					TlosServer.setLicensed(true);
-				} catch (Exception e) {
-					// e.printStackTrace();
-					// TlosServer.println(LocaleMessages.getString("Tlos.11")); //$NON-NLS-1$
-				}
-			} catch (Exception e) {
-				// e.printStackTrace();
-				// TlosServer.println(LocaleMessages.getString("Tlos.11")); //$NON-NLS-1$
-			}
-			
-			TlosServer.setClientInfo(clientInfo);
-		}
-
 		if(!ValidPlatforms.isOSValid()) {
 			TlosServer.println(LocaleMessages.getString("Tlos.17") + System.getProperty("os.name")); //$NON-NLS-1$ //$NON-NLS-2$
 			//System.exit(-1);
@@ -86,6 +65,25 @@ public class Tlos {
 		TlosServer.setTlosParameters(tlosParameters);
 
 		TlosServer.redirectLog(tlosParameters.getLogFile());
+		
+		if (tlosParameters.getClientLib().length() != 0) {
+			
+			ClientInfo clientInfo = loadClientInfoLib(tlosParameters.getClientLib());
+			
+			try {
+				try {
+					TlosServer.setLicensed(true);
+				} catch (Exception e) {
+					// e.printStackTrace();
+					// TlosServer.println(LocaleMessages.getString("Tlos.11")); //$NON-NLS-1$
+				}
+			} catch (Exception e) {
+				// e.printStackTrace();
+				// TlosServer.println(LocaleMessages.getString("Tlos.11")); //$NON-NLS-1$
+			}
+			
+			TlosServer.setClientInfo(clientInfo);
+		}
 
 		TlosServer.println(LocaleMessages.getString("Tlos.22")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$

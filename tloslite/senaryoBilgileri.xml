@@ -56,7 +56,7 @@ Senaryo bilgilerini bulunduran dosya
         hata kelimesi (\null, HATA)
 -->
 </comment>
-<entry key="version">V1.8.1</entry>
+<entry key="version">V1.8.2</entry>
 <entry key="job1">A,/Users/serkan/git/tloslite/tloslite/jobs/job01.bat,system,/Users/serkan/git/tloslite/tloslite/logUx.log,yok,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
 <entry key="job2">A,/Users/serkan/git/tloslite/tloslite/jobs/job01.sh,system,/Users/serkan/git/tloslite/tloslite/logWin.log,job1,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
 </properties>

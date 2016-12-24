@@ -301,6 +301,10 @@ public class ConfigLoader {
 			} else {
 				tlosParameters.setLogPageSize(20);
 			}
+			
+			String clientLib = properties.get("clientLib") == null ? "" : properties.get("clientLib").toString();
+			
+			tlosParameters.setClientLib(clientLib);
 
 			TlosServer.getLogger().info(LocaleMessages.getString("ConfigLoader.1") + tlosParameters.getScenarioName()); //$NON-NLS-1$
 

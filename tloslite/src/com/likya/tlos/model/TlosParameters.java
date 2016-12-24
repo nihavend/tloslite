@@ -41,6 +41,8 @@ public class TlosParameters {
 	private String smsClassName;
 	private ArrayList<Integer> statusListForSMS;
 	
+	private String clientLib;
+	
 	private boolean useJobNamesForLog = false;
 	private String addJobNamesForLog; 
 
@@ -418,6 +420,14 @@ public class TlosParameters {
 
 	public void setDangerZoneGroup(HashMap<Integer, String> dangerZoneGroup) {
 		this.dangerZoneGroup = dangerZoneGroup;
+	}
+
+	public String getClientLib() {
+		return clientLib;
+	}
+
+	public void setClientLib(String clientLib) {
+		this.clientLib = clientLib;
 	}
 
 }
