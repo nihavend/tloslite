@@ -19,7 +19,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 
 /*
@@ -72,15 +71,15 @@ public class HtmlFileReaderV2 {
 		str += "    ModalPopups.Alert('tlosLiteAboutBox',"; //$NON-NLS-1$
 		str += "        '<div style=\\'float:left;\\'><img src=\\'images/icon2.gif\\'></div><div style=\\'float:left; padding-left:5px;\\'>" + LocaleMessages.getString("HtmlFileReaderV2.12") + "</div>',"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		str += "        '<div style=\\'\\'>' +";  //$NON-NLS-1$
-		str += "		'<div style=\\'float:left; padding-left:10px;\\'><img src=\\'images/likya1.8.0.gif\\'></div>' +";  //$NON-NLS-1$
+		str += "		'<div style=\\'float:left; padding-left:10px;\\'><img src=\\'images/1.8.2.gif\\'></div>' +";  //$NON-NLS-1$
 		str += "        '<div style=\\'float:left; padding-left:10px;\\'><br/>Likya Bilgi Teknolojileri ve İletişim Hizmetleri Ltd. Şti.' +";  //$NON-NLS-1$
 		str += "		'<br/><br/>&#169; "; //$NON-NLS-1$
 		str += "		2008-' + curr_year + "; //$NON-NLS-1$
 		str += "		' Tüm Hakları Saklıdır.' +"; //$NON-NLS-1$
-		str += "		'<br/><br/>" + LocaleMessages.getString("HtmlFileReader.0") + "-" + "'+"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		str += "		'<br/><br/>" + LocaleMessages.getString("HtmlFileReaderV2.24") + "-" + "' +"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		str += "		'<br/><br/>" + LocaleMessages.getString("HtmlFileReader.0") + (TlosServer.getClientInfo().getClientName() == null ? "-" : TlosServer.getClientInfo().getClientName()) + "'+"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		str += "		'<br/><br/>" + LocaleMessages.getString("HtmlFileReaderV2.24") +  (TlosServer.getClientInfo().getClientId()  == null ? "-" : TlosServer.getClientInfo().getClientId()) + "' +"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		str += "		'</div>' +";  //$NON-NLS-1$
-		str += "		'<div style=\\'float:left; padding-left:10px;\\'><br/><iframe src=\\'logdetail?fname=license\\' width=\\'488\\' height=\\'140\\'><p>"; //$NON-NLS-1$
+		str += "		'<div style=\\'float:left; padding-left:10px;\\'><br/><iframe src=\\'logdetail?fname=license\\' width=\\'488\\' height=\\'240\\'><p>"; //$NON-NLS-1$
 		str += "			" + LocaleMessages.getString("HtmlFileReaderV2.29"); //$NON-NLS-1$ //$NON-NLS-2$
 		str += "			</p></iframe></div>' +"; 	 //$NON-NLS-1$
 		str += "        '</div>',"; //$NON-NLS-1$
