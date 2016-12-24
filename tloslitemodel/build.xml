@@ -1,0 +1,66 @@
+<project name="TlosLiteModel" default="jar" basedir=".">
+
+	<property name="appname" value="tloslite-model-os" />
+
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build/classes" />
+	<property name="webapp.dir" value="." />
+	<property name="build.classes.dir" value="${build.dir}"/>
+	<property name="app.deploy.dir" value="${basedir}" />
+	<property name="version.num" value="1.8.1"/>
+
+   <path id="build.path">
+      <pathelement location="${build.classes.dir}"/>
+   </path>
+   
+   	<target name="init" depends="init2" unless="minor.number">
+		<property name="minor.number" value="" />
+		<property name="buildchar" value="" />
+	</target>
+	
+	<target name="init2" if="minor.number">
+		<property name="buildchar" value="_b" />
+	</target>
+   
+	<!-- war, jar, ear files -->
+	
+	<target name="jar" depends="compile">	
+		<property name="jar" value="${appname}-${version.num}${buildchar}${minor.number}.jar" />	
+		<jar jarfile="${jar}" manifest="MANIFEST.MF">
+			<fileset dir="${build.classes.dir}" includes="**/*"></fileset>		
+			<fileset dir=".">
+			      <include name="lib" />
+			      <include name="lib/*.jar" />
+			</fileset>			
+		</jar>
+		
+		<property name="src.jar" value="${appname}-src-${version.num}${buildchar}${minor.number}.jar" />
+		<jar jarfile="${src.jar}" manifest="MANIFEST.MF">
+			<fileset dir="${src.dir}">
+			</fileset>
+			<fileset dir=".">
+				<include name="lib" />
+				<include name="lib/*.jar" />
+			</fileset>
+		</jar>
+		
+		<mkdir dir="test"/>
+		<copy file="${jar}" todir="test"/>
+		<move file="test/${appname}-${version.num}${buildchar}${minor.number}.jar" tofile="${appname}.jar"/>
+		
+	</target>
+	
+	<target name="clean" depends="init" description="deleteall">
+		<delete>
+			<fileset dir="." includes="**/tloslite-model*.jar" />
+		</delete>
+	</target>
+	
+	<!-- compilation options -->
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${build.classes.dir}" />
+		<javac encoding="UTF-8" includeantruntime="false" srcdir="${src.dir}" destdir="${build.classes.dir}" debug="on" deprecation="on" classpathref="build.path" optimize="off" includes="**/*" />
+	</target>
+
+</project>
