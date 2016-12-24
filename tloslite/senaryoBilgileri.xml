@@ -57,8 +57,6 @@ Senaryo bilgilerini bulunduran dosya
 -->
 </comment>
 <entry key="version">V1.8.1</entry>
-<!-- <entry key="job1">A,/Users/serkan/Desktop/tlosTest/job2.sh,system,tlos_v1.8.0_test/log1.log,yok,20,00:00:00-23:59:59,300,false,0,1,\null</entry> -->
-<entry key="job1">A,/Users/serkan/Desktop/Demo/tloslite-os-v1.8.1/tloslite-os-v1.8.0/job1.bat,system,tlos_v1.8.0_test/log1.log,yok,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
-<entry key="job2">A,/Users/serkan/Desktop/Demo/tloslite-os-v1.8.1/tloslite-os-v1.8.0/job1.bat,system,tlos_v1.8.0_test/log1.log,job1,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
-
+<entry key="job1">A,/Users/serkan/git/tloslite/tloslite/jobs/job01.bat,system,/Users/serkan/git/tloslite/tloslite/logUx.log,yok,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
+<entry key="job2">A,/Users/serkan/git/tloslite/tloslite/jobs/job01.sh,system,/Users/serkan/git/tloslite/tloslite/logWin.log,job1,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
 </properties>
