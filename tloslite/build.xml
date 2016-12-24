@@ -1,6 +1,6 @@
-<project name="TlosLite_V1.8.1_OS" default="build-all" basedir=".">
+<project name="tloslite" default="build-all" basedir=".">
 	
-	<property name="appname" value="tloslite-os" />
+	<property name="appname" value="tloslite" />
 
 	<property file="build.properties" />
 	
@@ -9,7 +9,7 @@
 	<property name="webapp.dir" value="." />
 	<property name="build.classes.dir" value="${build.dir}"/>
 	<property name="app.deploy.dir" value="${basedir}" />
-	<property name="version.num" value="1.8.1"/>
+	<property name="version.num" value="1.8.2"/>
 
 	<target name="init" depends="init2" unless="minor.number">
 		<property name="minor.number" value="" />
@@ -27,7 +27,7 @@
 		
 		<manifest file="MANIFEST.MF">
 			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
-			<attribute name="Class-Path" value="lib/tloslite-model-os-${version.num}${buildchar}${minor.number}.jar lib/mailapi.jar lib/activation.jar lib/smtp.jar lib/log4j-1.2.15.jar lib/VFSMSManager.jar lib/commons-lang-2.0-20041007T2305.jar lib/jmxremote_optional.jar lib/jmxremote.jar lib/rmissl.jar lib/winp.jar lib/commons-codec-1.4.jar lib/jxl.jar" />
+			<attribute name="Class-Path" value="lib/tloslite-model-${version.num}${buildchar}${minor.number}.jar lib/mailapi.jar lib/activation.jar lib/smtp.jar lib/log4j-1.2.15.jar lib/VFSMSManager.jar lib/commons-lang-2.0-20041007T2305.jar lib/jmxremote_optional.jar lib/jmxremote.jar lib/rmissl.jar lib/winp.jar lib/commons-codec-1.4.jar lib/jxl.jar" />
 		</manifest>  
 		
 		<jar jarfile="${jar}" manifest="MANIFEST.MF">
@@ -62,7 +62,8 @@
 			<pathelement location="${sharedlib.dir}/eXist_1.4/cocoon/commons-lang-2.0-20041007T2305.jar" />
 			<pathelement location="${sharedlib.dir}/apache/commons-codec-1.4.jar" />
 			<pathelement location="${sharedlib.dir}/icefaces_2.x/compat/jxl.jar" />
-			<pathelement location="${tlosLiteModel.dir}/tloslite-model-os-${version.num}${buildchar}${minor.number}.jar" />
+			<pathelement location="${tlosLiteModel.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
+			<pathelement location="${tlosLiteUtils.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
 			<pathelement location="${sharedlib.dir}/winp/winp.jar" />
 			<pathelement location="${sharedlib.dir}/winp/winp.dll" />
 			<pathelement location="${sharedlib.dir}/winp/winp.x64.dll" />
