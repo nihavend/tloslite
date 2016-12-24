@@ -27,6 +27,7 @@ import java.nio.channels.SocketChannel;
 
 import com.likya.tlos.model.CommandType;
 import com.likya.tlos.model.TlosInfo;
+import com.likya.tlos.utils.LocaleMessages;
 
 public class TlosRemoteManager {
 	// static final int PORT = 3030;

@@ -20,7 +20,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.TlosServerBase;
 import com.likya.tlos.jobs.ExternalProgram;
@@ -33,6 +32,7 @@ import com.likya.tlos.model.TlosInfo;
 import com.likya.tlos.sms.helpers.SMSType;
 import com.likya.tlos.utils.DateUtils;
 import com.likya.tlos.utils.DependencyOperations;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.ObjectUtils;
 
 public class TlosCommInterface {

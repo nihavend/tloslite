@@ -29,6 +29,7 @@ import com.likya.tlos.model.TlosInfo;
 import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.sms.TlosSMSServer;
 import com.likya.tlos.utils.ManagementConsole;
+import com.likya.tloslite.model.ClientInfo;
 
 public abstract class TlosServerBase implements Runnable {
 
@@ -39,6 +40,8 @@ public abstract class TlosServerBase implements Runnable {
 	protected static boolean isLicensed = false;
 	
 	private static boolean isRecovered = false;
+	
+	private static ClientInfo clientInfo;
 
 	protected boolean executionPermission = true;
 
@@ -204,5 +207,13 @@ public abstract class TlosServerBase implements Runnable {
 
 	public static HashMap<String, String> getDisabledJobQueue() {
 		return disabledJobQueue;
+	}
+
+	public static ClientInfo getClientInfo() {
+		return clientInfo;
+	}
+
+	public static void setClientInfo(ClientInfo clientInfo) {
+		TlosServerBase.clientInfo = clientInfo;
 	}
 }
