@@ -19,8 +19,11 @@ import com.likya.tlos.mail.TlosMailServer;
 import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.sms.TlosSMSServer;
 import com.likya.tlos.sms.helpers.TlosSMSHandler;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.ValidPlatforms;
 import com.likya.tlos.utils.loaders.ConfigLoader;
+import com.likya.tloslite.model.ClientInfo;
+import com.likya.tloslite.model.ClientManager;
 
 public class Tlos {
 
@@ -45,6 +48,27 @@ public class Tlos {
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.9") + " => " + Tlos.class.getProtectionDomain().getCodeSource().getLocation().getFile());
 		TlosServer.println();
+		
+		boolean isClientInfoLibNameDefined = true;
+		
+		if (isClientInfoLibNameDefined) {
+			
+			ClientInfo clientInfo = loadClientInfoLib("com.likya.license.LicenseManager");
+			
+			try {
+				try {
+					TlosServer.setLicensed(true);
+				} catch (Exception e) {
+					// e.printStackTrace();
+					// TlosServer.println(LocaleMessages.getString("Tlos.11")); //$NON-NLS-1$
+				}
+			} catch (Exception e) {
+				// e.printStackTrace();
+				// TlosServer.println(LocaleMessages.getString("Tlos.11")); //$NON-NLS-1$
+			}
+			
+			TlosServer.setClientInfo(clientInfo);
+		}
 
 		if(!ValidPlatforms.isOSValid()) {
 			TlosServer.println(LocaleMessages.getString("Tlos.17") + System.getProperty("os.name")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -66,49 +90,12 @@ public class Tlos {
 		TlosServer.println(LocaleMessages.getString("Tlos.22")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 
-		// debug("Log parametreleri d�zenleniyor...");
-		// if (!doLoggingIssues()) {
-		// debug("Log parametreleri d�zenlenemedi ! Program sona erdi.");
-		// System.exit(-1);
-		// }
-		// debugln("Tamam.");
-
-		// Logger root = Logger.getRootLogger();
-		// root.setLevel(Level.DEBUG);
-		// schedulerLogger.fatal(Level.FATAL);
-		// schedulerLogger.error(Level.ERROR);
-		// schedulerLogger.warn(Level.WARN);
-		// schedulerLogger.info(Level.INFO);
-		// schedulerLogger.debug(Level.DEBUG);
-		// schedulerLogger.trace(Level.TRACE);
-
 		if (tlosParameters.isMail()) {
-			// logger.log(Level.INFO, "E-posta ayarlar� d�zenleniyor...");
 			TlosServer.println(LocaleMessages.getString("Tlos.24")); //$NON-NLS-1$
-			// Eski mail arabirim
-			// MailClient mailClientHandler = new MailClient(tlosParameters);
 			TlosMailServer tlosMailServer = new TlosMailServer(tlosParameters);
 			Thread tlosMailServerThread = new Thread(tlosMailServer);
 			tlosMailServerThread.start();
-			/*
-			 * A�a��daki k�s�m, e-posta g�nderip g�nderemedi�ini test etmek i�in
-			 * konumu�tu. �ifre bilgilerinin ve e-posta ayarlar�n� test etmek
-			 * i�in e-posta atmay� denemek gerekiyor. Art�k bu i�lem, a��l��
-			 * e-postas� g�nderimi s�ras�nda yap�l�yor. Serkan Ta� 29.06.2008
-			 */
-			// try {
-			// mailClientHandler.postMail("Tlos:Haz�rlan�yor...", "Tlos e-posta
-			// servisi �al��t�r�ld� !");
-			// } catch (AuthenticationFailedException ae) {
-			// TlosServer.println("E-posta sunucusuna ba�lanamad� ! G�venlik
-			// hatas�... Program sona erdi. ");
-			// System.exit(-1);
-			// } catch (Exception e) {
-			// TlosServer.println("E-posta ayarlar� y�klenemedi ! Program sona
-			// erdi. ");
-			// e.printStackTrace();
-			// System.exit(-1);
-			// }
+
 			TlosServer.println(LocaleMessages.getString("Tlos.25")); //$NON-NLS-1$
 			// TlosServer.setMailClientHandler(mailClientHandler);
 			TlosServer.setTlosMailServer(tlosMailServer);
@@ -136,12 +123,10 @@ public class Tlos {
 			}
 		}
 		
-		// logger.log(Level.INFO, "Uygulama ba�lat�l�yor...");
 		TlosServer.println(LocaleMessages.getString("Tlos.30")); //$NON-NLS-1$
 		TlosServer tlosServer = new TlosServer();
 
 		Thread tlosServerThread = new Thread(tlosServer);
-		// likyaSchedulerThread.setDaemon(true);
 		tlosServerThread.start();
 
 		TlosServer.println(LocaleMessages.getString("Tlos.31")); //$NON-NLS-1$
@@ -170,5 +155,29 @@ public class Tlos {
 		}
 
 		return tlosSMSHandler;
+	}
+	
+	private static ClientInfo loadClientInfoLib(String libName) {
+
+		ClientInfo clientInfo = null;
+
+		try {
+			// TlosServer.getLogger().info(LocaleMessages.getString("Tlos.33") + libName); //$NON-NLS-1$
+			@SuppressWarnings("rawtypes")
+			Class handlerClass = Class.forName(libName);
+
+			Object myObject = handlerClass.newInstance();
+
+			if (myObject instanceof ClientManager) {
+				clientInfo = ((ClientManager) myObject).getClientInfo(TlosServer.getVersion());
+			}
+			// TlosServer.getLogger().info(LocaleMessages.getString("Tlos.34")); //$NON-NLS-1$
+		} catch (Exception e) {
+			// System.out.println(LocaleMessages.getString("Tlos.35") + libName); //$NON-NLS-1$
+			// System.out.println(LocaleMessages.getString("Tlos.36")); //$NON-NLS-1$
+			e.printStackTrace();
+		}
+
+		return clientInfo;
 	}
 }
