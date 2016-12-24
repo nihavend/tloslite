@@ -1,9 +1,10 @@
 /bin/
-/tloslite-os-orj-1.8.1.jar
-/tloslite-os-src-1.8.1.jar
 /TlosEkran.log
 /TlosTrace.log
 /logUx.log
 /logWin.log
 /Tlos.authorization
 /job01.log
+/license.tlos
+/tloslite-1.8.2.jar
+/tloslite-src-1.8.2.jar
