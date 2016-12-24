@@ -18,10 +18,10 @@ package com.likya.tlos.web.helpers;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.jobs.Job;
 import com.likya.tlos.model.JobProperties;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.web.TlosWebConsole;
 import com.sun.net.httpserver.HttpExchange;
 

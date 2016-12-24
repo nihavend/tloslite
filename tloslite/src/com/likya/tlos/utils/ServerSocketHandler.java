@@ -23,7 +23,6 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.comm.TlosCommInterface;
 import com.likya.tlos.model.JobProperties;

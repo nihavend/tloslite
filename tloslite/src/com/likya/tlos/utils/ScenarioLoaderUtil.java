@@ -21,7 +21,6 @@ import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tloslite.model.DependencyInfo;
 import com.likya.tlos.model.AutoRetryInfo;
 import com.likya.tlos.model.JobProperties;

@@ -27,7 +27,6 @@ import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.jobs.ExternalProgram;
 import com.likya.tlos.jobs.Job;
@@ -40,6 +39,7 @@ import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.utils.DependencyOperations;
 import com.likya.tlos.utils.FileUtils;
 import com.likya.tlos.utils.HtmlPages;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.ObjectUtils;
 import com.likya.tlos.utils.ScenarioLoaderUtil;
 import com.likya.tlos.utils.Validation;

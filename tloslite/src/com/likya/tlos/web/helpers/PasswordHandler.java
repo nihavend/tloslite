@@ -21,10 +21,10 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.utils.HtmlFileReaderV2;
 import com.likya.tlos.utils.HtmlPages;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.PasswordService;
 import com.likya.tlos.utils.TlosException;
 import com.likya.tlos.utils.loaders.AuthorizationLoader;

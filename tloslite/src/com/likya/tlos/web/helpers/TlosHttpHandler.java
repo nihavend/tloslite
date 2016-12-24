@@ -18,10 +18,10 @@ package com.likya.tlos.web.helpers;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.comm.TlosCommInterface;
 import com.likya.tlos.model.TlosInfo;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.TlosException;
 import com.likya.tlos.web.TlosWebConsole;
 import com.sun.net.httpserver.HttpHandler;
