@@ -23,13 +23,13 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.Tlos;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.encryption.LikyaEncryption;
 import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.utils.CyclicStringBuilder;
 import com.likya.tlos.utils.HtmlPages;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.Validation;
 
 public class ConfigLoader {

@@ -17,8 +17,6 @@ package com.likya.tlos.utils;
 
 import java.util.ArrayList;
 
-import com.likya.tlos.LocaleMessages;
-
 
 public class HtmlPages {
 	

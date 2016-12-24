@@ -24,7 +24,6 @@ import javax.management.remote.JMXConnectorServer;
 import javax.management.remote.JMXConnectorServerFactory;
 import javax.management.remote.JMXServiceURL;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.comm.TlosCommInterface;
 
 public class JmxManagementConsole {

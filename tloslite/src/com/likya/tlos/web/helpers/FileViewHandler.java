@@ -20,18 +20,19 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.StringTokenizer;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.utils.FileUtils;
 import com.likya.tlos.utils.HtmlPages;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.web.TlosWebConsole;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 
 public class FileViewHandler extends TlosHttpHandler {
 	
-	private final String licenseFile = "LICENSE-2.0.html";
+	// private final String licenseFile = "LICENSE-2.0.html";
+	private final String licenseFile = "lisans.html";
 
 	public FileViewHandler(TlosServer tlosServer, TlosWebConsole tlosWebConsole) {
 		super(tlosServer, tlosWebConsole);

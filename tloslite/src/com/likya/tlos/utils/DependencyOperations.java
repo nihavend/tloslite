@@ -23,7 +23,6 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.jobs.Job;
 import com.likya.tlos.jobs.RepetitiveExternalProgram;
