@@ -17,8 +17,8 @@ package com.likya.tlos.encryption;
 
 import java.util.Scanner;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
+import com.likya.tlos.utils.LocaleMessages;
 
 public class PasswordEncrypter {
 

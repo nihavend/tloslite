@@ -15,7 +15,6 @@
  ******************************************************************************/
 package com.likya.tlos.utils;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.jobs.Job;
 import com.likya.tlos.model.JobProperties;

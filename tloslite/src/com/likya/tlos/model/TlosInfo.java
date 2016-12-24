@@ -18,7 +18,8 @@ package com.likya.tlos.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import com.likya.tlos.LocaleMessages;
+
+import com.likya.tlos.utils.LocaleMessages;
 
 public class TlosInfo implements Serializable {
 	

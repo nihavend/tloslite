@@ -28,10 +28,10 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.jobs.Job;
 import com.likya.tlos.utils.JobQueueOperations;
+import com.likya.tlos.utils.LocaleMessages;
 
 public class WelcomeMail extends MultipartMail {
 

@@ -18,11 +18,11 @@ package com.likya.tlos.sms;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.sms.helpers.SMSType;
 import com.likya.tlos.sms.helpers.TlosSMSHandler;
+import com.likya.tlos.utils.LocaleMessages;
 
 /**
  * @author vista

@@ -7,7 +7,6 @@
 
 package com.likya.tlos.utils;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 
 public class ValidPlatforms {

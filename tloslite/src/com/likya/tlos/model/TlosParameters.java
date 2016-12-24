@@ -17,7 +17,8 @@ package com.likya.tlos.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import com.likya.tlos.LocaleMessages;
+
+import com.likya.tlos.utils.LocaleMessages;
 
 public class TlosParameters {
 

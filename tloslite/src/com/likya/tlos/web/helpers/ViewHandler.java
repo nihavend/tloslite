@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.jobs.ExternalProgram;
 import com.likya.tlos.jobs.Job;
@@ -37,6 +36,7 @@ import com.likya.tlos.utils.DateUtils;
 import com.likya.tlos.utils.FileUtils;
 import com.likya.tlos.utils.HtmlFileReaderV2;
 import com.likya.tlos.utils.HtmlPages;
+import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.ObjectUtils;
 import com.likya.tlos.utils.TlosException;
 import com.likya.tlos.utils.loaders.ScenarioLoader;

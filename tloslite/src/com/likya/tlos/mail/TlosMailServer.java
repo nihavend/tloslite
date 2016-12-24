@@ -32,12 +32,12 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.likya.tlos.LocaleMessages;
 import com.likya.tlos.TlosServer;
 import com.likya.tlos.mail.helpers.MultipartMail;
 import com.likya.tlos.mail.helpers.SimpleMail;
 import com.likya.tlos.mail.helpers.TlosMail;
 import com.likya.tlos.model.TlosParameters;
+import com.likya.tlos.utils.LocaleMessages;
 
 /**
  * @author vista
