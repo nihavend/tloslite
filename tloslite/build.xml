@@ -63,7 +63,7 @@
 			<pathelement location="${sharedlib.dir}/apache/commons-codec-1.4.jar" />
 			<pathelement location="${sharedlib.dir}/icefaces_2.x/compat/jxl.jar" />
 			<pathelement location="${tlosLiteModel.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
-			<pathelement location="${tlosLiteUtils.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
+			<pathelement location="${tlosLiteUtils.dir}/tloslite-utils-${version.num}${buildchar}${minor.number}.jar" />
 			<pathelement location="${sharedlib.dir}/winp/winp.jar" />
 			<pathelement location="${sharedlib.dir}/winp/winp.dll" />
 			<pathelement location="${sharedlib.dir}/winp/winp.x64.dll" />
