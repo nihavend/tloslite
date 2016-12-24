@@ -79,7 +79,7 @@ public class HtmlFileReaderV2 {
 		str += "		'<br/><br/>" + LocaleMessages.getString("HtmlFileReader.0") + (TlosServer.getClientInfo().getClientName() == null ? "-" : TlosServer.getClientInfo().getClientName()) + "'+"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		str += "		'<br/><br/>" + LocaleMessages.getString("HtmlFileReaderV2.24") +  (TlosServer.getClientInfo().getClientId()  == null ? "-" : TlosServer.getClientInfo().getClientId()) + "' +"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		str += "		'</div>' +";  //$NON-NLS-1$
-		str += "		'<div style=\\'float:left; padding-left:10px;\\'><br/><iframe src=\\'logdetail?fname=license\\' width=\\'488\\' height=\\'240\\'><p>"; //$NON-NLS-1$
+		str += "		'<div style=\\'float:left; padding-left:10px;\\'><br/><iframe src=\\'logdetail?fname=license\\' width=\\'488\\' height=\\'180\\'><p>"; //$NON-NLS-1$
 		str += "			" + LocaleMessages.getString("HtmlFileReaderV2.29"); //$NON-NLS-1$ //$NON-NLS-2$
 		str += "			</p></iframe></div>' +"; 	 //$NON-NLS-1$
 		str += "        '</div>',"; //$NON-NLS-1$
