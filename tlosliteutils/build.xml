@@ -22,24 +22,19 @@
 	<!-- war, jar, ear files -->
 	
 	<target name="jar" depends="compile">
+		
 		<property name="jar" value="${appname}-${version.num}${buildchar}${minor.number}.jar" />
 		
-		<manifest file="MANIFEST.MF">
-			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
-			<attribute name="Class-Path" value="lib/tloslite-model-os-${version.num}${buildchar}${minor.number}.jar lib/mailapi.jar lib/activation.jar lib/smtp.jar lib/log4j-1.2.15.jar lib/VFSMSManager.jar lib/commons-lang-2.0-20041007T2305.jar lib/jmxremote_optional.jar lib/jmxremote.jar lib/rmissl.jar lib/winp.jar lib/commons-codec-1.4.jar lib/jxl.jar" />
-		</manifest>  
-		
-		<jar jarfile="${jar}" manifest="MANIFEST.MF">
-			<fileset dir="${build.classes.dir}">
-				<include name="**/*" />
-			</fileset>
-			<fileset dir=".">
-				<include name="lib" />
-				<include name="lib/*.jar" />
-			</fileset>
-		</jar>
-		
 		<property name="src.jar" value="${appname}-src-${version.num}${buildchar}${minor.number}.jar" />
+
+		<jar jarfile="${jar}">
+			<fileset dir="${build.classes.dir}" includes="**/*"></fileset>		
+			<fileset dir=".">
+			      <include name="lib" />
+			      <include name="lib/*.jar" />
+			</fileset>			
+		</jar>
+	
 		<jar jarfile="${src.jar}">
 			<fileset dir="${src.dir}">
 				<include name="**/*" />
@@ -49,6 +44,9 @@
 				<include name="lib/*.jar" />
 			</fileset>
 		</jar>
+		
+		<copy file="${jar}" tofile="${appname}.jar" />
+		
 	</target>
 
 	<!-- compilation options -->
@@ -63,6 +61,7 @@
 		<javac encoding="UTF-8" includeantruntime="false" srcdir="${src.dir}" destdir="${build.classes.dir}" debug="on" deprecation="on" classpathref="build.path" optimize="off" includes="**" />
 		<native2ascii encoding="UTF-8" src="src" dest="${build.classes.dir}"
 				 		   includes="**/*.properties" ext=".properties"/>
+		
 	</target>
 	
     <target name="clean">
@@ -70,12 +69,11 @@
             <fileset dir="${build.dir}/" includes="**/*" />
         </delete>
 		<delete>
-			<fileset dir="." includes="**/TlosLite*.jar" />
+			<fileset dir="." includes="**/tloslite-utils*.jar" />
 		</delete>
-		<delete file="MANIFEST.MF"/>
     </target>
 
 	<target name="build-all" depends="init,jar">
-	</target>
-
+		</target>
+	
 </project>
