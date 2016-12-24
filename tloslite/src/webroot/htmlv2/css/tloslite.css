@@ -1,0 +1,128 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma,Verdana,Helvetica,sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+}
+
+/*
+Typography
+*/
+
+a, a:link {
+	font-size: 11px;
+	text-decoration: none;
+	color: #003399;
+}
+/******************************************************/
+/*
+General console styles and some specific pages
+*/
+.tbframeTop {
+	display: none;
+}
+
+.tbframeBottom {
+	display: none;
+}
+
+.tbframeContent {
+	margin: 2px 4px;
+}
+
+/*
+Toolbar Area
+*/
+.toolbar {
+	background-color: #D2E5F9;
+	overflow: hidden;
+	width: 100%;
+	padding: 1px;
+}
+
+.toolbar-info {
+	height: 100%;
+	width: auto;
+	float: right;
+	color: #3E403D;
+}
+
+.toolbar-info #welcome {
+	float: left;
+	font-weight: bold;
+}
+
+.toolbar-info #liveclock {
+	float: left;
+	padding-left: 4px;
+	padding-top: 5px;
+	border-left: 1px solid #7E8797;
+	margin-left: 4px;
+}
+
+
+.toolbar-info p {
+	padding: 0;
+	margin: 0;
+	margin-top: 2px;
+	line-height: 22px;
+}
+
+.toolbar-menu {
+	height: 100%;
+	width: auto;
+	float: left;
+	text-align: left;
+}
+
+.toolbar ul {
+	list-style: none;
+	padding: 0px 2px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+.toolbar li {
+	display: inline;
+	margin-top: 4px;
+	line-height: 22px;
+}
+/*******************************************************/
+
+.lt-header {
+	background-color: #ffffff;
+	overflow: hidden;
+	height: 2.3em;
+}
+#console-header-logo {
+	float: left;
+	width: 400px;
+}
+#header-trans {
+	background-color: #0D4988;
+	float: right;
+	width: 26%;
+}
+#header-trans img {
+	width: 100%;
+	height: 2.3em;
+}
+#global-links {
+	float: right;
+	width: 16%;
+	height: 2.3em;
+	text-align: right;
+	padding: 0;
+	background-color: #0D4988;
+	white-space: nowrap;
+}
+
+#console-header-logo a {
+	color: #ffffff; /* same as background */
+	text-decoration: none;
+	background-color: transparent;
+}
+/***************************************/
+
+

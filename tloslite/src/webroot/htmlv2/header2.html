@@ -1,0 +1,110 @@
+<script type="text/javascript">
+
+	ddsmoothmenu.init({
+		mainmenuid: "tloslitemenu", //menu DIV id
+		orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+		classname: 'ddsmoothmenu', //class added to menu's outer DIV
+		customtheme: ["#1c5a80", "#18374a"],
+		contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+	})
+
+</script>
+
+<script>
+	function myFunctionPost() {
+
+		var x;
+
+		var name = prompt("Please enter your name", "Harry Potter");
+
+		if (name != null) {
+			x = "Hello " + name + "! How are you today?";
+			document.getElementById("demo").innerHTML = x;
+
+			var http = new XMLHttpRequest();
+
+			var url = "/params";
+			// var params = "jobname=job1&action=reset&value=" + x;
+			var params = "jobname=job1&action=set&value=" + x;
+			http.open("POST", url, true);
+
+			//Send the proper header information along with the request
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.setRequestHeader("Content-length", params.length);
+			http.setRequestHeader("Connection", "close");
+
+			http.onreadystatechange = function() {//Call a function when the state changes.
+				if (http.readyState == 4 && http.status == 200) {
+					alert(http.responseText);
+				}
+			}
+			http.send(params);
+
+		}
+	}
+
+	// GET
+	function myFunction(messageTxt, jobName, postParam) {
+
+		// var x;
+		// alert("Parametre : " + document.getElementById("jobParameter" + "_" + jobName).value);
+		var name = prompt(messageTxt, document.getElementById("jobParameter" + "_" + jobName).value);
+		// var name = prompt("Please enter your name", "Harry Potter");
+		
+		if (name != null) {
+			// alert("Parametre : " + name);
+			// x = "Hello " + name + "! How are you today?";
+			// document.getElementById("demo").innerHTML = x;
+			var http = new XMLHttpRequest();
+
+			http.open("POST", url, true);
+
+			var url = "/params";
+			// "jobname=job3&action=set&value="
+			var params = postParam + name;
+			//var params = "jobname=job3&action=reset&value=" + x;
+			// alert("Parametre : " + params);
+			// alert("Parametre : " + url + "?" + params);
+			http.open("GET", url + "?" + params, true);
+			http.onreadystatechange = function() {//Call a function when the state changes.
+				if(http.readyState == 4 && http.status == 200) {
+					alert(http.responseText);
+				}
+			}
+			http.send(null);
+			
+			document.getElementById("jobParameter" + "_" + jobName).value = name;
+			
+			// alert(document.getElementById("jobParameter").value);
+		}
+		
+	}
+	
+	
+</script>
+				
+	</head>
+
+	<body onLoad="show_clock()">	
+		<div class="lt-header">
+			<div id="console-header-logo">
+				<div>
+					<a title="TlosLite Scheduler" href="#">
+						<img src="images/version.gif" id="console-title" alt="TlosLite Scheduler 1.7.0" style="border : 0px; padding-top: 2px;">
+					</a>
+				</div>
+			</div>
+
+			<div id="global-links">
+			</div>
+
+			<div id="header-trans">
+				<img src="images/gradient-white-none.png">
+			</div>
+
+		</div>
+		<!-- 
+		<button onclick="myFunction()">Try it</button>
+
+		<p id="demo"></p>
+		-->
