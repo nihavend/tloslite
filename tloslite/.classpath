@@ -10,5 +10,7 @@
 	<classpathentry kind="lib" path="lib/winp.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/jmxremote_optional.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/tlosliteutils"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/licenselib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
