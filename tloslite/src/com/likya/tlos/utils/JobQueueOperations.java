@@ -638,8 +638,8 @@ public class JobQueueOperations {
 		footerValue.append("        <hr size=\"1\" color=\"black\" width=\"80%\"/>"); //$NON-NLS-1$
 		footerValue.append("        <h6 align=\"center\">" + TlosServer.getVersion()); //$NON-NLS-1$
 		footerValue.append("            <br/>" + LocaleMessages.getString("JobQueueOperations.126")); //$NON-NLS-1$ //$NON-NLS-2$
-		footerValue.append("            <br/>Ataşehir, İstanbul, Türkiye"); //$NON-NLS-1$
-		footerValue.append("            <br/>"); //$NON-NLS-1$
+		footerValue.append("            <br/>İstanbul, Türkiye"); //$NON-NLS-1$
+		footerValue.append("            <br/>" + (TlosServer.getClientInfo() == null || TlosServer.getClientInfo().getClientName() == null ? "-" : TlosServer.getClientInfo().getClientName()) + "<br/>"); //$NON-NLS-1$
 		footerValue.append("            <a href=\"http://www.likyateknoloji.com\" title=\"www.likyateknoloji.com\">www.likyateknoloji.com</a>&nbsp;&nbsp;"); //$NON-NLS-1$
 		footerValue.append("            <a href=\"mailto:bilgi@likyateknoloji.com\">bilgi@likyateknoloji.com</a>"); //$NON-NLS-1$
 		footerValue.append("        </h6>"); //$NON-NLS-1$
