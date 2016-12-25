@@ -46,8 +46,51 @@ public class WelcomeMail extends MultipartMail {
 			e.printStackTrace();
 		}
 	}
-
+	
 	private Multipart prepareWelcomeMail(HashMap<String, Job> jobQueue) throws MessagingException, URISyntaxException {
+		
+		MimeMultipart multipart = new MimeMultipart("related");
+	
+		// HTML part
+		MimeBodyPart mimeBodyPartHtml = new MimeBodyPart();
+		String mailHtml = JobQueueOperations.getHTMLFormattedJobProperties(jobQueue);
+		
+//		Test için
+//		try {
+//			FileOutputStream outputStream = new FileOutputStream("serkan.xml");
+//			outputStream.write(mailHtml.getBytes());
+//			outputStream.close();
+//		} catch(Throwable t) {
+//			t.printStackTrace();
+//		}
+		
+		
+		mimeBodyPartHtml.setText(mailHtml, "utf-8", "html");
+		
+		// Image part
+		MimeBodyPart imagePart = new MimeBodyPart();
+		try {
+			String imgUrl = "/webroot/img/likya_mail.jpg";
+			URL url = this.getClass().getResource(imgUrl);
+			imagePart.setDataHandler(new DataHandler(new ByteArrayDataSource(url.openStream(), "image/jpg")));
+			// imagePart.attachFile("/com/likya/pinara/resources/likya_mail.jpg");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		imagePart.setHeader("Content-ID", "<likyajpg10976@likyateknoloji.com>");
+		imagePart.setDisposition(MimeBodyPart.INLINE);
+
+		
+		multipart.addBodyPart(mimeBodyPartHtml);
+		multipart.addBodyPart(imagePart);
+		
+		return multipart;
+		
+	}
+	
+	@SuppressWarnings("unused")
+	private Multipart prepareWelcomeMailOld(HashMap<String, Job> jobQueue) throws MessagingException, URISyntaxException {
 
 		// Create an "Alternative" Multipart message
 		Multipart multipart = new MimeMultipart("alternative"); //$NON-NLS-1$
