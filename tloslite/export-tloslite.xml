@@ -24,6 +24,7 @@
     	<copy file="${lib.dir}/jxl.jar" todir="${dest.dir}/lib"/>
     	<copy file="${lib.dir}/log4j-1.2.15.jar" todir="${dest.dir}/lib"/>
     	<copy file="${lib.dir}/mailapi.jar" todir="${dest.dir}/lib"/>
+    	<copy file="${lib.dir}/smtp.jar" todir="${dest.dir}/lib"/>
     	<copy file="${lib.dir}/tlostestjob.jar" todir="${dest.dir}/lib"/>
     	<copy file="${lib.dir}/winp.jar" todir="${dest.dir}/lib"/>
     	<copy file="${lib.dir}/winp.dll" todir="${dest.dir}/lib"/>
