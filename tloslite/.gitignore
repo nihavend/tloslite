@@ -9,3 +9,11 @@
 /tloslite-1.8.2.jar
 /tloslite-src-1.8.2.jar
 /MANIFEST.MF
+/start-notr.bat
+/start-notr.sh
+/start.bat
+/start.sh
+/stop.bat
+/stop.sh
+/stopf.bat
+/stopf.sh

@@ -1,57 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="create_run_jar" name="Create Runnable Jar for Project TlosLite with libraries in sub-folder">
-	
+
 	<property name="version" value="1.8.2" />
-	
-	<property name="lib.dir" value="/Users/serkan/git/tloslitegroup/tloslite-libs/libs" />
-	<property name="dest.dir" value="/Users/serkan/Desktop/tloslite_export-${version}" />
-	<property name="src.dir" value="/Users/serkan/git/tloslite/tloslite" />
-	
-    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
-    <!--ANT 1.7 is required                                        -->
-    <target name="create_run_jar">
-    	
-    	<delete dir="${dest.dir}"/>
 
-        <mkdir dir="${dest.dir}/lib"/>
-        <copy file="/Users/serkan/git/tloslite/tloslite/tloslite-${version}.jar" todir="${dest.dir}/"/>
-        <copy file="/Users/serkan/git/tloslite/tloslitemodel/tloslite-model-${version}.jar" todir="${dest.dir}/lib"/>
-        <copy file="/Users/serkan/git/tloslite/tlosliteutils/tloslite-utils-${version}.jar" todir="${dest.dir}/lib"/>
+	<property name="lib.dir" value="${basedir}/../../tloslitegroup/tloslite-libs/libs" />
+	<property name="export.dir" value="/Users/${user.name}/Desktop/tloslite_export-${version}" />
+	<property name="dist.dir" value="/Users/${user.name}/Desktop/tlosliteDist" />
+	<property name="src.dir" value="${basedir}" />
 
-    	<copy file="${lib.dir}/commons-codec-1.4.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/commons-lang-2.6.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/jmxremote_optional.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/jxl.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/log4j-1.2.15.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/mailapi.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/smtp.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/tlostestjob.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/winp.jar" todir="${dest.dir}/lib"/>
-    	<copy file="${lib.dir}/winp.dll" todir="${dest.dir}/lib"/>
-       	<copy file="${lib.dir}/winp.x64.dll" todir="${dest.dir}/lib"/>
-   	
-       	<copy file="${src.dir}/start-no-tr.bat" todir="${dest.dir}"/>
-    	<chmod file="${dest.dir}/start.sh" perm="ugo+rx"/>
-    	
-       	<copy file="${src.dir}/start.bat" todir="${dest.dir}"/>
-    	<chmod file="${dest.dir}/start.sh" perm="ugo+rx"/>
-       		
-       	<copy file="${src.dir}/start.sh" todir="${dest.dir}"/>
-    	<chmod file="${dest.dir}/start.sh" perm="ugo+rx"/>
-       		
-       	<copy file="${src.dir}/README.txt" todir="${dest.dir}"/>
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<target name="create_run_jar" depends="">
 
-    	<copy file="${src.dir}/lisans.html" todir="${dest.dir}"/>
-    	
-    	<copy file="${src.dir}/TlosConfig.xml" todir="${dest.dir}"/>
-    	<copy file="${src.dir}/senaryoBilgileri.xml" todir="${dest.dir}"/>
+		<delete dir="${export.dir}" />
 
-    	<delete dir="/Users/serkan/Desktop/tlosliteDist"/>
-    	<mkdir dir="/Users/serkan/Desktop/tlosliteDist"/>
-    	
-    	<tar destfile="/Users/serkan/Desktop/tlosliteDist/tloslite-${version}.tar" basedir="${dest.dir}"/>
-    	<gzip destfile="/Users/serkan/Desktop/tlosliteDist/tloslite-${version}.tar.gz" src="/Users/serkan/Desktop/tlosliteDist/tloslite-${version}.tar"/>
-    	<delete file="/Users/serkan/Desktop/tlosliteDist/pinaraWLM$-{version}.tar"/>
-    	
-    </target>
+		<delete dir="jobs"/>
+		<mkdir dir="jobs"/>
+
+		<ant antfile="generate-files.xml" />
+
+		<copy todir="${export.dir}/jobs">
+			<fileset dir="jobs" includes="**" />
+		</copy>
+		
+		<delete dir="jobs"/>
+
+		<mkdir dir="${export.dir}/lib"/>
+		<copy file="${basedir}/tloslite-${version}.jar" todir="${export.dir}/"/>
+		<copy file="${basedir}/../tloslitemodel/tloslite-model-${version}.jar" todir="${export.dir}/lib"/>
+		<copy file="${basedir}/../tlosliteutils/tloslite-utils-${version}.jar" todir="${export.dir}/lib"/>
+
+		<copy file="${lib.dir}/commons-codec-1.4.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/commons-lang-2.6.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/jmxremote_optional.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/jxl.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/log4j-1.2.15.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/mailapi.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/smtp.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/tlostestjob.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/winp.jar" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/winp.dll" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/winp.x64.dll" todir="${export.dir}/lib"/>
+
+		<copy file="${src.dir}/start-notr.bat" todir="${export.dir}"/>
+
+		<copy file="${src.dir}/start-notr.sh" todir="${export.dir}"/>
+		<chmod file="${export.dir}/start-notr.sh" perm="ugo+rx"/>
+
+		<copy file="${src.dir}/start.bat" todir="${export.dir}"/>
+
+		<copy file="${src.dir}/start.sh" todir="${export.dir}"/>
+		<chmod file="${export.dir}/start.sh" perm="ugo+rx"/>
+
+		<copy file="${src.dir}/stop.bat" todir="${export.dir}"/>
+
+		<copy file="${src.dir}/stop.sh" todir="${export.dir}"/>
+		<chmod file="${export.dir}/stop.sh" perm="ugo+rx"/>
+
+		<copy file="${src.dir}/stopf.bat" todir="${export.dir}"/>
+
+		<copy file="${src.dir}/stopf.sh" todir="${export.dir}"/>
+		<chmod file="${export.dir}/stopf.sh" perm="ugo+rx"/>
+
+		<copy file="${src.dir}/README.txt" todir="${export.dir}"/>
+
+		<copy file="${src.dir}/lisans.html" todir="${export.dir}"/>
+
+		<copy file="${src.dir}/tlos-config-ux.xml" todir="${export.dir}"/>
+		<copy file="${src.dir}/tlos-config-win.xml" todir="${export.dir}"/>
+		
+		<copy file="${src.dir}/senaryo-ux.xml" todir="${export.dir}"/>
+		<copy file="${src.dir}/senaryo-win.xml" todir="${export.dir}"/>
+
+		<delete>
+			<fileset dir="." includes="**/*.bat, **/*.sh" />
+		</delete>
+
+		<delete dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}"/>
+
+		<tar destfile="${dist.dir}/tloslite-${version}.tar" basedir="${export.dir}"/>
+		<gzip destfile="${dist.dir}/tloslite-${version}.tar.gz" src="/Users/serkan/Desktop/tlosliteDist/tloslite-${version}.tar"/>
+		<delete file="${dist.dir}/pinaraWLM$-{version}.tar"/>
+
+	</target>
 </project>

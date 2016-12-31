@@ -4,12 +4,67 @@
 
 	<property name="version" value="1.8.2" />
 
+	<!-- condition property="isWindows">
+		<os family="windows" />
+	</condition>
+
+	<condition property="isUnix">
+		<os family="unix" />
+	</condition-->
+
+	<!-- now create our operating system specific targets -->
+	<!--  target name="doWindows" if="isWindows">
+		<echo message="Building for Windows target" />
+		<property file="build-win.properties" />
+	</target>
+
+	<target name="doUnix" if="isUnix">
+		<echo message="Building for Unix target" />
+		<property file="build-ux.properties" />
+	</target-->
+
+
 	<target name="create" depends="">
-		<echo file="start-tloslite.sh">type README.txt
+		<echo file="start.sh">cat README.txt
+java -jar tloslite-1.8.2.jar -cfg tlos-config-ux.xml 2> error.log
+		</echo>
+
+		<echo file="start-notr.sh">cat README.txt
+java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar 2> error.log
+		</echo>
+
+		<echo file="start.bat">type README.txt
+@echo off
+Chcp 1254
+java -jar tloslite-${version}.jar 2> error.log
+		</echo>
+
+		<echo file="start-notr.bat">type README.txt
 @echo off
 Chcp 1254
 java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar 2> error.log
 		</echo>
 
+		<echo file="stop.sh">java -cp tloslite-${version}.jar com.likya.tlos.TlosRemoteManager -port 3001 -host localhost -terminate</echo>
+
+		<echo file="stopf.sh">java -cp tloslite-${version}.jar com.likya.tlos.TlosRemoteManager -port 3001 -host localhost -fterminate</echo>
+
+		<echo file="stop.bat">@echo off
+Chcp 1254
+java -cp tloslite-${version}.jar com.likya.tlos.TlosRemoteManager -port 3001 -host localhost -terminate
+		</echo>
+
+		<echo file="stopf.bat">@echo off
+Chcp 1254
+java -cp tloslite-${version}.jar com.likya.tlos.TlosRemoteManager -port 3001 -host localhost -fterminate
+		</echo>
+
+		<echo file="jobs/job01.sh">java -jar lib/tlostestjob.jar 10000 0 logUx01.log</echo>
+		<echo file="jobs/job02.sh">java -jar lib/tlostestjob.jar 10000 0 logUx02.log</echo>
+
+		<echo file="jobs/job01.bat">java -jar lib\\tlostestjob.jar 10000 0 logWin01.log</echo>
+		<echo file="jobs/job02.bat">java -jar lib\\tlostestjob.jar 10000 0 logWin02.log</echo>
+		
 	</target>
+
 </project>
