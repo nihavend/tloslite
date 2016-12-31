@@ -1,0 +1,62 @@
+<!--
+  Copyright 2014 Likya Teknoloji
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+
+<comment>
+<!-- 
+Senaryo bilgilerini bulunduran dosya
+        job ID
+        	() parantez içinde instance sayısı verilebilir. Örnek job1(10)|5    => job1 den 10 iisntance aç, öncelikleri 5 olsun.
+        	 | işareti ile yanına öncelik girilebilir. Örnek : <entry key="job1|5"> gibi.
+        job group 
+        	| işareti ile yanına birlikte çalışMAma grubu girilebilir. Örnek : BILLING|REPORTING gibi.
+        	Bu durumda bu iş eğer REPORTING grubundan başka bir iş çalışır durumda ise çalışmaz.
+		job command
+        job type
+        log_file_path
+        dependencylist
+        	Bağılılık tanımım yapılırken, jobların fail mi yoksa success tipinde mi bağımlı olacakları tanım sırasında belirlenebilir.
+        	Örnek : 
+        		job1(1) :success
+        		job1(0)  :fail
+        		job1(-) : success-fail both
+        		Önemli Not : Bir job'a fail tipinde bağlama yapıldığında, fail tipinde bağlanılan job otomatik olarak non-blocker yapılır
+        	
+        execution type : S : Standart : yanına | ile ayırıp (isblocker(true/false)) eklenebilir : bu işi fail edince senaryo bloklansın mı ?  default ya da verilmezse true olacak Diğer iş türlerinde anlamı yok.
+        				 M : Manuel
+        				 DELAY(ms) : Tekrarlı
+        				 
+        start date/time (gg:aa:yyyy hh:mm:ss) veya (hh:mm:ss basladigi gunu kabul edip calisir)
+        timeout(sn)
+        autorestart
+        	(true,false), 
+        	true ise; 
+        		iş fail ettiğinde;
+        			| delay(ms) | count(sayı) : eğer true ise ve başka bilgi verilmezse ya da delay < 1000 ise veya sayı < 1 ise; delay = 1000; sayı = 1 kabul edilir
+        			verilen sayı kadar verilen aralıklarla tekrar çalıştırır.
+        	false ise;
+        		fail edince hiç bir şey yapmaz
+        bitis uyari kodu; Buraya listelenen ve | ile ayrilan kodlarla biten isler basarili sayilacak, eğer bu bilgi "yok" olarak set edilrise, hangi kodla biterse bitsin başarılı olacak.
+        restartable (0,1) : Bu bilgi tekrarlı işler için başarısız da bitse devam et anlamına gelir, diğer işler için sadece bilgi amaçlıdır.
+        hata kelimesi (\null, HATA)
+-->
+</comment>
+<entry key="version">V1.8.2</entry>
+<entry key="job1">A,jobs/job01.bat,system,logUx.log,yok,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
+<entry key="job2">A,jobs/job01.sh,system,logWin.log,job1,S,00:00:00-23:59:59,300,false,0,1,\null</entry>
+</properties>

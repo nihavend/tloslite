@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project default="create" name="Create config files and the startup scripts">
+
+	<property name="version" value="1.8.2" />
+
+	<target name="create" depends="">
+		<echo file="start-tloslite.sh">type README.txt
+@echo off
+Chcp 1254
+java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar 2> error.log
+		</echo>
+
+	</target>
+</project>
