@@ -128,6 +128,10 @@ public abstract class TlosServerBase implements Runnable {
 		return configFileName;
 	}
 
+	public static void setConfigFileName(String configFileName) {
+		TlosServerBase.configFileName = configFileName;
+	}
+	
 	public static void setTlosParameters(TlosParameters tlosParameters) {
 		TlosServerBase.tlosParameters = tlosParameters;
 	}

@@ -35,6 +35,11 @@ public class Tlos {
 
 			arg = args[i++];
 			
+			if (arg.equals("-cfg")) {
+				if (i < args.length)
+					TlosServer.setConfigFileName(args[i++]);			
+			}
+			
 			if (arg.equals("-loadTest")) { //$NON-NLS-1$
 				TlosServer.println(LocaleMessages.getString("Tlos.2")); //$NON-NLS-1$
 				TlosServer.setLoadTest(true);
