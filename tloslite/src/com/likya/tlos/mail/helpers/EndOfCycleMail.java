@@ -48,6 +48,40 @@ public class EndOfCycleMail extends MultipartMail {
 	}
 	
 	private Multipart prepareEndOfCycleMail(HashMap<String, Job> jobQueue) throws MessagingException, URISyntaxException {
+		
+		MimeMultipart multipart = new MimeMultipart("related");
+	
+		// HTML part
+		MimeBodyPart mimeBodyPartHtml = new MimeBodyPart();
+		String localizedMessage = LocaleMessages.getString("EndOfCycleMail.8"); //$NON-NLS-1$
+		String mailHtml = JobQueueOperations.getHTMLFormattedJobProperties(jobQueue, localizedMessage);
+		
+		mimeBodyPartHtml.setText(mailHtml, "utf-8", "html");
+		
+		// Image part
+		MimeBodyPart imagePart = new MimeBodyPart();
+		try {
+			String imgUrl = "/webroot/img/likya_mail.jpg";
+			URL url = this.getClass().getResource(imgUrl);
+			imagePart.setDataHandler(new DataHandler(new ByteArrayDataSource(url.openStream(), "image/jpg")));
+			// imagePart.attachFile("/com/likya/pinara/resources/likya_mail.jpg");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		imagePart.setHeader("Content-ID", "<likyajpg10976@likyateknoloji.com>");
+		imagePart.setDisposition(MimeBodyPart.INLINE);
+
+		
+		multipart.addBodyPart(mimeBodyPartHtml);
+		multipart.addBodyPart(imagePart);
+		
+		return multipart;
+		
+	}
+	
+	@SuppressWarnings("unused")
+	private Multipart prepareEndOfCycleMailOld(HashMap<String, Job> jobQueue) throws MessagingException, URISyntaxException {
 
 		// mp.setSubType("related");
 
