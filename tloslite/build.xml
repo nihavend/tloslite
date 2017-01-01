@@ -37,7 +37,7 @@
 
 		<manifest file="MANIFEST.MF">
 			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
-			<attribute name="Class-Path" value="lib/licenselib-${version.num}${buildchar}${minor.number}.jar lib/tloslite-model-${version.num}${buildchar}${minor.number}.jar lib/tloslite-utils-${version.num}${buildchar}${minor.number}.jar lib/mailapi.jar lib/activation.jar lib/smtp.jar lib/log4j-1.2.15.jar lib/VFSMSManager.jar lib/commons-lang-2.0-20041007T2305.jar lib/jmxremote_optional.jar lib/jmxremote.jar lib/rmissl.jar lib/winp.jar lib/commons-codec-1.4.jar lib/jxl.jar" />
+			<attribute name="Class-Path" value="libs/licenselib-${version.num}${buildchar}${minor.number}.jar libs/tloslite-model-${version.num}${buildchar}${minor.number}.jar libs/tloslite-utils-${version.num}${buildchar}${minor.number}.jar libs/mailapi.jar libs/activation.jar libs/smtp.jar libs/log4j-1.2.15.jar libs/VFSMSManager.jar libs/commons-lang-2.0-20041007T2305.jar libs/jmxremote_optional.jar libs/jmxremote.jar libs/rmissl.jar libs/winp.jar libs/commons-codec-1.4.jar libs/jxl.jar" />
 		</manifest>
 
 		<jar jarfile="${jar}" manifest="MANIFEST.MF">
@@ -45,8 +45,8 @@
 				<include name="**/*" />
 			</fileset>
 			<fileset dir=".">
-				<include name="lib" />
-				<include name="lib/*.jar" />
+				<include name="libs" />
+				<include name="libs/*.jar" />
 			</fileset>
 		</jar>
 
@@ -56,8 +56,8 @@
 				<include name="**/*" />
 			</fileset>
 			<fileset dir=".">
-				<include name="lib" />
-				<include name="lib/*.jar" />
+				<include name="libs" />
+				<include name="libs/*.jar" />
 			</fileset>
 		</jar>
 	</target>
