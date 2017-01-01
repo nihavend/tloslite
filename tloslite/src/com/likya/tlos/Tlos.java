@@ -15,6 +15,8 @@
  ******************************************************************************/
 package com.likya.tlos;
 
+import java.util.Calendar;
+
 import com.likya.tlos.mail.TlosMailServer;
 import com.likya.tlos.model.TlosParameters;
 import com.likya.tlos.sms.TlosSMSServer;
@@ -49,7 +51,7 @@ public class Tlos {
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.5")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.6") + TlosServer.getVersion() + LocaleMessages.getString("Tlos.7")); //$NON-NLS-1$ //$NON-NLS-2$
-		TlosServer.println(LocaleMessages.getString("Tlos.8")); //$NON-NLS-1$
+		TlosServer.println(String.format(LocaleMessages.getString("Tlos.8"), Calendar.getInstance().get(Calendar.YEAR)));
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.9") + " => " + Tlos.class.getProtectionDomain().getCodeSource().getLocation().getFile());
 		TlosServer.println();

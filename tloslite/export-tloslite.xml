@@ -7,6 +7,7 @@
 	<property name="export.dir" value="/Users/${user.name}/Desktop/tloslite_export-${version}" />
 	<property name="dist.dir" value="/Users/${user.name}/Desktop/tlosliteDist" />
 	<property name="src.dir" value="${basedir}" />
+	<property name="export.lib.dir" value="${export.dir}/libs" />
 
 	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
 	<!--ANT 1.7 is required                                        -->
@@ -23,24 +24,22 @@
 			<fileset dir="jobs" includes="**" />
 		</copy>
 		
-		<delete dir="jobs"/>
-
-		<mkdir dir="${export.dir}/lib"/>
+		<mkdir dir="${export.lib.dir}"/>
 		<copy file="${basedir}/tloslite-${version}.jar" todir="${export.dir}/"/>
-		<copy file="${basedir}/../tloslitemodel/tloslite-model-${version}.jar" todir="${export.dir}/lib"/>
-		<copy file="${basedir}/../tlosliteutils/tloslite-utils-${version}.jar" todir="${export.dir}/lib"/>
+		<copy file="${basedir}/../tloslitemodel/tloslite-model-${version}.jar" todir="${export.lib.dir}"/>
+		<copy file="${basedir}/../tlosliteutils/tloslite-utils-${version}.jar" todir="${export.lib.dir}"/>
 
-		<copy file="${lib.dir}/commons-codec-1.4.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/commons-lang-2.6.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/jmxremote_optional.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/jxl.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/log4j-1.2.15.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/mailapi.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/smtp.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/tlostestjob.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/winp.jar" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/winp.dll" todir="${export.dir}/lib"/>
-		<copy file="${lib.dir}/winp.x64.dll" todir="${export.dir}/lib"/>
+		<copy file="${lib.dir}/commons-codec-1.4.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/commons-lang-2.6.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/jmxremote_optional.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/jxl.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/log4j-1.2.15.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/mailapi.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/smtp.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/tlostestjob.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/winp.jar" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/winp.dll" todir="${export.lib.dir}"/>
+		<copy file="${lib.dir}/winp.x64.dll" todir="${export.lib.dir}"/>
 
 		<copy file="${src.dir}/start-notr.bat" todir="${export.dir}"/>
 
@@ -72,9 +71,9 @@
 		<copy file="${src.dir}/senaryo-ux.xml" todir="${export.dir}"/>
 		<copy file="${src.dir}/senaryo-win.xml" todir="${export.dir}"/>
 
-		<delete>
-			<fileset dir="." includes="**/*.bat, **/*.sh" />
-		</delete>
+		<!--delete>
+			<fileset dir="." includes="*.bat, *.sh" />
+		</delete-->
 
 		<delete dir="${dist.dir}" />
 		<mkdir dir="${dist.dir}"/>

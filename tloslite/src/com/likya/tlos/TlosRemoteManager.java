@@ -107,9 +107,9 @@ public class TlosRemoteManager {
 		} else {
 			
 			SocketChannel socketChannel = null;
-			
+			int retryCount = 0;
 			while (true) {
-				int retryCount = 0;
+				
 				try {
 					if (socketChannel == null || !socketChannel.isOpen()) {
 						socketChannel = SocketChannel.open();
@@ -123,6 +123,10 @@ public class TlosRemoteManager {
 						Thread.sleep(1000);
 						continue;
 					}
+				}
+				if(retryCount > retryCountMax) {
+					System.out.println(LocaleMessages.getString("TlosRemoteManager.xx"));
+					System.exit(0);
 				}
 				break;
 			}

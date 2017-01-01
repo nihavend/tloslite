@@ -30,19 +30,19 @@ java -jar tloslite-1.8.2.jar -cfg tlos-config-ux.xml 2> error.log
 		</echo>
 
 		<echo file="start-notr.sh">cat README.txt
-java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar 2> error.log
+java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar -cfg tlos-config-ux.xml 2> error.log
 		</echo>
 
 		<echo file="start.bat">type README.txt
 @echo off
 Chcp 1254
-java -jar tloslite-${version}.jar 2> error.log
+java -jar tloslite-${version}.jar  -cfg tlos-config-win.xml 2> error.log
 		</echo>
 
 		<echo file="start-notr.bat">type README.txt
 @echo off
 Chcp 1254
-java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar 2> error.log
+java -Duser.country=ENTR -Duser.language=entr -jar tloslite-${version}.jar -cfg tlos-config-win.xml 2> error.log
 		</echo>
 
 		<echo file="stop.sh">java -cp tloslite-${version}.jar com.likya.tlos.TlosRemoteManager -port 3001 -host localhost -terminate</echo>
@@ -59,11 +59,11 @@ Chcp 1254
 java -cp tloslite-${version}.jar com.likya.tlos.TlosRemoteManager -port 3001 -host localhost -fterminate
 		</echo>
 
-		<echo file="jobs/job01.sh">java -jar lib/tlostestjob.jar 10000 0 logUx01.log</echo>
-		<echo file="jobs/job02.sh">java -jar lib/tlostestjob.jar 10000 0 logUx02.log</echo>
+		<echo file="jobs/job01.sh">java -jar libs/tlostestjob.jar 10000 0 logUx01.log</echo>
+		<echo file="jobs/job02.sh">java -jar libs/tlostestjob.jar 10000 0 logUx02.log</echo>
 
-		<echo file="jobs/job01.bat">java -jar lib\\tlostestjob.jar 10000 0 logWin01.log</echo>
-		<echo file="jobs/job02.bat">java -jar lib\\tlostestjob.jar 10000 0 logWin02.log</echo>
+		<echo file="jobs/job01.bat">java -jar libs\\tlostestjob.jar 10000 0 logWin01.log</echo>
+		<echo file="jobs/job02.bat">java -jar libs\\tlostestjob.jar 10000 0 logWin02.log</echo>
 		
 	</target>
 

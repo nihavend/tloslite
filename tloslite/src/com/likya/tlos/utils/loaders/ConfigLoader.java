@@ -20,6 +20,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
@@ -61,7 +62,7 @@ public class ConfigLoader {
 			TlosServer.getLogger().info(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 			TlosServer.getLogger().info(LocaleMessages.getString("Tlos.5")); //$NON-NLS-1$
 			TlosServer.getLogger().info(LocaleMessages.getString("Tlos.6") + TlosServer.getVersion() + LocaleMessages.getString("Tlos.7")); //$NON-NLS-1$ //$NON-NLS-2$
-			TlosServer.getLogger().info(LocaleMessages.getString("Tlos.8")); //$NON-NLS-1$
+			TlosServer.getLogger().info(String.format(LocaleMessages.getString("Tlos.8"), Calendar.getInstance().get(Calendar.YEAR)));
 			TlosServer.getLogger().info(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 			TlosServer.getLogger().info(LocaleMessages.getString("Tlos.9") + " => " + Tlos.class.getProtectionDomain().getCodeSource().getLocation().getFile());
 

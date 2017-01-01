@@ -15,6 +15,7 @@
  ******************************************************************************/
 package com.likya.tlos.encryption;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 import com.likya.tlos.TlosServer;
@@ -30,7 +31,7 @@ public class PasswordEncrypter {
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.5")); //$NON-NLS-1$
 		TlosServer.println(LocaleMessages.getString("Tlos.6") + TlosServer.getVersion() + LocaleMessages.getString("Tlos.7")); //$NON-NLS-1$ //$NON-NLS-2$
-		TlosServer.println(LocaleMessages.getString("Tlos.8")); //$NON-NLS-1$
+		TlosServer.println(String.format(LocaleMessages.getString("Tlos.8"), Calendar.getInstance().get(Calendar.YEAR)));
 		TlosServer.println(LocaleMessages.getString("Tlos.4")); //$NON-NLS-1$
 
 		boolean validated = false;
