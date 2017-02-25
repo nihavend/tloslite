@@ -4,8 +4,8 @@
 	<property name="version" value="1.8.2" />
 
 	<property name="lib.dir" value="${basedir}/../../tloslitegroup/tloslite-libs/libs" />
-	<property name="export.dir" value="/Users/${user.name}/Desktop/tloslite_export-${version}" />
-	<property name="dist.dir" value="/Users/${user.name}/Desktop/tlosliteDist" />
+	<property name="export.dir" value="${basedir}/../../../releases/tloslite_export-${version}" />
+	<property name="dist.dir" value="${basedir}/../../../releases/tlosliteDist" />
 	<property name="src.dir" value="${basedir}" />
 	<property name="export.lib.dir" value="${export.dir}/libs" />
 
@@ -79,8 +79,8 @@
 		<mkdir dir="${dist.dir}"/>
 
 		<tar destfile="${dist.dir}/tloslite-${version}.tar" basedir="${export.dir}"/>
-		<gzip destfile="${dist.dir}/tloslite-${version}.tar.gz" src="/Users/serkan/Desktop/tlosliteDist/tloslite-${version}.tar"/>
-		<delete file="${dist.dir}/pinaraWLM$-{version}.tar"/>
+		<gzip destfile="${dist.dir}/tloslite-${version}.tar.gz" src="${dist.dir}/tloslite-${version}.tar"/>
+		<delete file="${dist.dir}/tloslite-${version}.tar"/>
 
 	</target>
 </project>
