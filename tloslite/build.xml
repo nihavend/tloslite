@@ -34,22 +34,28 @@
 	<target name="jar" depends="compile">
 		<property name="jar" value="${appname}-${version.num}${buildchar}${minor.number}.jar" />
 
-		<path id="build.classpath">
+		<!--path id="build.classpath">
 		  <fileset dir="${lib.dir}">
 		    <include name="*.jar" />
 		  </fileset>
-		</path>
-		
-		<!-- convert classpath to a flat list/string for use in manifest task -->
-		<pathconvert property="mf.classpath" pathsep=" ">
-		    <path refid="build.classpath" />
-		    <cutdirsmapper dirs="7"/>
-		</pathconvert>
-		
+		</path-->
+
 		<!--manifestclasspath property="lib.list" jarfile="${jar}" maxparentlevels="4">
 		    <classpath refid="build.classpath"/>
 		</manifestclasspath-->
-			
+
+		
+		<!--manifest file="MANIFEST.MF">
+			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
+			<attribute name="Class-Path" value="libs/licenselib-${version.num}${buildchar}${minor.number}.jar libs/tloslite-model-${version.num}${buildchar}${minor.number}.jar libs/tloslite-utils-${version.num}${buildchar}${minor.number}.jar libs/mailapi.jar libs/activation.jar libs/smtp.jar libs/log4j-1.2.15.jar libs/VFSMSManager.jar libs/commons-lang-2.0-20041007T2305.jar libs/jmxremote_optional.jar libs/jmxremote.jar libs/rmissl.jar libs/winp.jar libs/commons-codec-1.4.jar libs/jxl.jar" />
+		</manifest-->
+				
+		<!-- convert classpath to a flat list/string for use in manifest task -->
+		<!--pathconvert property="mf.classpath" pathsep=" ">
+		    <path refid="class.path" />
+		    <cutdirsmapper dirs="7"/>
+		</pathconvert-->
+
 		<tstamp>
 		  <format property="TODAY_TR" pattern="yyyy-MM-dd HH:mm:ss:sss zzz" locale="tr,TR"/>
 		</tstamp>
@@ -58,14 +64,18 @@
 		  <attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
 		  <attribute name="Implementation-Version" value="${version.num}${buildchar}${minor.number}"/>   
 		  <attribute name="Built-Date" value="${TODAY_TR}"/>
-		  <attribute name="Class-Path" value="${mf.classpath}" />
+		  <attribute name="Class-Path" value="lib/log4j-1.2.15.jar
+		  	lib/mailapi.jar
+		  	lib/commons-lang-2.6.jar
+		  	lib/commons-codec-1.4.jar
+		  	lib/jxl.jar
+		  	lib/winp.jar
+		  	lib/winp.dll
+		  	lib/winp.x64.dll
+		  	lib/tloslite-model-${version.num}${buildchar}${minor.number}.jar
+		  	lib/tloslite-utils-${version.num}${buildchar}${minor.number}.jar
+		  	" />
 		</manifest>
-
-		
-		<!--manifest file="MANIFEST.MF">
-			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
-			<attribute name="Class-Path" value="libs/licenselib-${version.num}${buildchar}${minor.number}.jar libs/tloslite-model-${version.num}${buildchar}${minor.number}.jar libs/tloslite-utils-${version.num}${buildchar}${minor.number}.jar libs/mailapi.jar libs/activation.jar libs/smtp.jar libs/log4j-1.2.15.jar libs/VFSMSManager.jar libs/commons-lang-2.0-20041007T2305.jar libs/jmxremote_optional.jar libs/jmxremote.jar libs/rmissl.jar libs/winp.jar libs/commons-codec-1.4.jar libs/jxl.jar" />
-		</manifest-->
 
 		<jar jarfile="${jar}" manifest="MANIFEST.MF">
 			<fileset dir="${build.classes.dir}">
@@ -113,11 +123,11 @@
 			<pathelement location="${lib.dir}/commons-lang-2.6.jar" />
 			<pathelement location="${lib.dir}/commons-codec-1.4.jar" />
 			<pathelement location="${lib.dir}/jxl.jar" />
-			<pathelement location="${tlosLiteModel.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
-			<pathelement location="${tlosLiteUtils.dir}/tloslite-utils-${version.num}${buildchar}${minor.number}.jar" />
 			<pathelement location="${lib.dir}/winp.jar" />
 			<pathelement location="${lib.dir}/winp.dll" />
 			<pathelement location="${lib.dir}/winp.x64.dll" />
+			<pathelement location="${tlosLiteModel.dir}/tloslite-model-${version.num}${buildchar}${minor.number}.jar" />
+			<pathelement location="${tlosLiteUtils.dir}/tloslite-utils-${version.num}${buildchar}${minor.number}.jar" />
 		</path>
 
 		<mkdir dir="${build.classes.dir}" />
