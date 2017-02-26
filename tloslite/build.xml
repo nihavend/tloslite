@@ -36,15 +36,20 @@
 
 		<path id="build.classpath">
 		  <fileset dir="${lib.dir}">
-		    <include name="**/*.jar" />
+		    <include name="*.jar" />
 		  </fileset>
 		</path>
 		
 		<!-- convert classpath to a flat list/string for use in manifest task -->
 		<pathconvert property="mf.classpath" pathsep=" ">
 		    <path refid="build.classpath" />
-		    <flattenmapper />
+		    <cutdirsmapper dirs="7"/>
 		</pathconvert>
+		
+		<!--manifestclasspath property="lib.list" jarfile="${jar}" maxparentlevels="4">
+		    <classpath refid="build.classpath"/>
+		</manifestclasspath-->
+			
 		<tstamp>
 		  <format property="TODAY_TR" pattern="yyyy-MM-dd HH:mm:ss:sss zzz" locale="tr,TR"/>
 		</tstamp>
