@@ -72,6 +72,7 @@
 		  	libs/winp.jar
 		  	libs/winp.dll
 		  	libs/winp.x64.dll
+		  	libs/jmxremote_optional.jar
 		  	libs/tloslite-model-${version.num}${buildchar}${minor.number}.jar
 		  	libs/tloslite-utils-${version.num}${buildchar}${minor.number}.jar
 		  	" />
