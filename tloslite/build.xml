@@ -34,11 +34,33 @@
 	<target name="jar" depends="compile">
 		<property name="jar" value="${appname}-${version.num}${buildchar}${minor.number}.jar" />
 
-
+		<path id="build.classpath">
+		  <fileset dir="${lib.dir}">
+		    <include name="**/*.jar" />
+		  </fileset>
+		</path>
+		
+		<!-- convert classpath to a flat list/string for use in manifest task -->
+		<pathconvert property="mf.classpath" pathsep=" ">
+		    <path refid="build.classpath" />
+		    <flattenmapper />
+		</pathconvert>
+		<tstamp>
+		  <format property="TODAY_TR" pattern="yyyy-MM-dd HH:mm:ss:sss zzz" locale="tr,TR"/>
+		</tstamp>
 		<manifest file="MANIFEST.MF">
+		  <attribute name="Built-By" value="${user.name}"/>
+		  <attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
+		  <attribute name="Implementation-Version" value="${version.num}${buildchar}${minor.number}"/>   
+		  <attribute name="Built-Date" value="${TODAY_TR}"/>
+		  <attribute name="Class-Path" value="${mf.classpath}" />
+		</manifest>
+
+		
+		<!--manifest file="MANIFEST.MF">
 			<attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
 			<attribute name="Class-Path" value="libs/licenselib-${version.num}${buildchar}${minor.number}.jar libs/tloslite-model-${version.num}${buildchar}${minor.number}.jar libs/tloslite-utils-${version.num}${buildchar}${minor.number}.jar libs/mailapi.jar libs/activation.jar libs/smtp.jar libs/log4j-1.2.15.jar libs/VFSMSManager.jar libs/commons-lang-2.0-20041007T2305.jar libs/jmxremote_optional.jar libs/jmxremote.jar libs/rmissl.jar libs/winp.jar libs/commons-codec-1.4.jar libs/jxl.jar" />
-		</manifest>
+		</manifest-->
 
 		<jar jarfile="${jar}" manifest="MANIFEST.MF">
 			<fileset dir="${build.classes.dir}">
