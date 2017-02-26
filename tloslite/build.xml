@@ -64,16 +64,16 @@
 		  <attribute name="Main-Class" value="com.likya.tlos.Tlos"/>
 		  <attribute name="Implementation-Version" value="${version.num}${buildchar}${minor.number}"/>   
 		  <attribute name="Built-Date" value="${TODAY_TR}"/>
-		  <attribute name="Class-Path" value="lib/log4j-1.2.15.jar
-		  	lib/mailapi.jar
-		  	lib/commons-lang-2.6.jar
-		  	lib/commons-codec-1.4.jar
-		  	lib/jxl.jar
-		  	lib/winp.jar
-		  	lib/winp.dll
-		  	lib/winp.x64.dll
-		  	lib/tloslite-model-${version.num}${buildchar}${minor.number}.jar
-		  	lib/tloslite-utils-${version.num}${buildchar}${minor.number}.jar
+		  <attribute name="Class-Path" value="libs/log4j-1.2.15.jar
+		  	libs/mailapi.jar
+		  	libs/commons-lang-2.6.jar
+		  	libs/commons-codec-1.4.jar
+		  	libs/jxl.jar
+		  	libs/winp.jar
+		  	libs/winp.dll
+		  	libs/winp.x64.dll
+		  	libs/tloslite-model-${version.num}${buildchar}${minor.number}.jar
+		  	libs/tloslite-utils-${version.num}${buildchar}${minor.number}.jar
 		  	" />
 		</manifest>
 
