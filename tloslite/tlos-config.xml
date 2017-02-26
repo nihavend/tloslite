@@ -44,7 +44,7 @@ scheduledDays(opsiyonel, varsayılan : 1,2,3,4,5,6,7) : Çalışma günleri, Tlo
 <entry key="version">V1.8.2</entry>
 
 <entry key="scenarioName">Test</entry>
-<entry key="scenarioFile">senaryoBilgileri.xml</entry>
+<entry key="scenarioFile">senaryo-ux.xml</entry>
 <entry key="normalize">false</entry>
 <entry key="ispersistent">false</entry>
 <entry key="schedulerFrequency">1</entry>
@@ -57,15 +57,10 @@ scheduledDays(opsiyonel, varsayılan : 1,2,3,4,5,6,7) : Çalışma günleri, Tlo
 <entry key="statusListForMail">5</entry>
 <entry key="emaildestinationList">serkan.tas@likyateknoloji.com</entry>
 <entry key="useencryption">false</entry>
-<entry key="emailusername">xxxxx@likyateknoloji.com</entry>
-<entry key="emailpassword">xyz</entry>
-<entry key="smtpserver">mail.server.com</entry>
+<entry key="emailusername">test9027@likyateknoloji.com</entry>
+<entry key="emailpassword">k=U6TS#wmSSF</entry>
+<entry key="smtpserver">mail.likyateknoloji.com</entry>
 <entry key="smtpport">587</entry>
-
-<!-- SMS kullanılacak ise aşağıdaki kısımlar doldurulmalı -->
-<entry key="usesms">false</entry>
-<entry key="smsclassname">VodafoneSMSHandler</entry>
-<entry key="statusListForSMS">TIMEOUT</entry>
 
 <entry key="logfile">TlosEkran.log</entry>
 <!-- job logları ile ilgli ayarlar için aşağıdaki kısımlar doldurulmalı -->
@@ -73,7 +68,7 @@ scheduledDays(opsiyonel, varsayılan : 1,2,3,4,5,6,7) : Çalışma günleri, Tlo
 <entry key="addjobnamesforlog">.log</entry>
 <!-- log dizinleri ile ilgli ayarlar için aşağıdaki kısımlar doldurulmalı -->
 <entry key="usegloballogpath">false</entry>
-<entry key="globallogpath">tlos_v1.8.0_test/logs</entry>
+<entry key="globallogpath">logs</entry>
 <entry key="logbuffersize">800</entry>
 <entry key="logpagesize">20</entry>
 

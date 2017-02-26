@@ -66,6 +66,7 @@
 		  <attribute name="Built-Date" value="${TODAY_TR}"/>
 		  <attribute name="Class-Path" value="libs/log4j-1.2.15.jar
 		  	libs/mailapi.jar
+		  	libs/smtp.jar
 		  	libs/commons-lang-2.6.jar
 		  	libs/commons-codec-1.4.jar
 		  	libs/jxl.jar
