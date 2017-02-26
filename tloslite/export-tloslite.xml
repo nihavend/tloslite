@@ -4,6 +4,7 @@
 	<property name="version" value="1.8.2" />
 
 	<property name="lib.dir" value="${basedir}/../../tloslitegroup/tloslite-libs/libs" />
+	<property name="img.dir" value="${basedir}/../../tloslitegroup/tloslite-libs/imgs" />
 	<property name="export.dir" value="${basedir}/../../../releases/tloslite_export-${version}" />
 	<property name="dist.dir" value="${basedir}/../../../releases/tlosliteDist" />
 	<property name="src.dir" value="${basedir}" />
@@ -40,6 +41,9 @@
 		<copy file="${lib.dir}/winp.jar" todir="${export.lib.dir}"/>
 		<copy file="${lib.dir}/winp.dll" todir="${export.lib.dir}"/>
 		<copy file="${lib.dir}/winp.x64.dll" todir="${export.lib.dir}"/>
+		
+		<copy file="${img.dir}/1.8.2.gif" todir="${export.dir}"/>
+		<copy file="${img.dir}/bk.jpg" todir="${export.dir}"/>
 
 		<copy file="${src.dir}/start-notr.bat" todir="${export.dir}"/>
 
