@@ -45,6 +45,7 @@ import com.likya.tlos.utils.sort.ExecutionTimeComparator;
 import com.likya.tlos.utils.sort.JobGroupComparator;
 import com.likya.tlos.utils.sort.WorkDurationComparator;
 import com.likya.tlos.web.TlosWebConsole;
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 public class ViewHandler extends TlosHttpHandler {
@@ -193,7 +194,15 @@ public class ViewHandler extends TlosHttpHandler {
 			}
 		}
 		byte outputByteArray [] = response.getBytes("utf-8");
-		httpExchange.sendResponseHeaders(200, outputByteArray.length);
+		
+		if (httpExchange.getRequestMethod().equals("POST")) {
+			Headers map = httpExchange.getResponseHeaders();
+	        map.add("Location", "/");
+	        httpExchange.sendResponseHeaders(301, outputByteArray.length /*-1*/);
+		} else {
+			httpExchange.sendResponseHeaders(200, outputByteArray.length);
+		}
+		
 		os = httpExchange.getResponseBody();
 		os.write(outputByteArray);
 		os.close();
@@ -1039,9 +1048,10 @@ public class ViewHandler extends TlosHttpHandler {
 
 		String str = ""; //$NON-NLS-1$
 		
-		str += "<form name=\"tlosview\" action=\"http://" + TlosServer.getTlosParameters().getHostName() + ":" + TlosServer.getTlosParameters().getHttpAccessPort() + "/" + tlosWebConsole.getADMIN_CTX() //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		+ "\" method=\"post\">"; //$NON-NLS-1$
+		// str += "<form name=\"tlosview\" action=\"http://" + TlosServer.getTlosParameters().getHostName() + ":" + TlosServer.getTlosParameters().getHttpAccessPort() + "/" + tlosWebConsole.getADMIN_CTX() + "\" method=\"post\">"; //$NON-NLS-1$
 
+		str += "<form name=\"tlosview\" action=\"/" + tlosWebConsole.getADMIN_CTX() + "\" method=\"post\">";
+		
 		str += "<input name=\"keyToken\" type=\"hidden\" value=\"" + tlosServer.getDateToken() + "\">"; //$NON-NLS-1$ //$NON-NLS-2$
 		str += "<input name=\"jobname\" type=\"hidden\" value=\"\">"; //$NON-NLS-1$
 		str += "<input id=\"commandnameId\" name=\"commandname\" type=\"hidden\" value=\"nocommand\">"; //$NON-NLS-1$
