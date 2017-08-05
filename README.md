@@ -11,4 +11,4 @@ Very user friendly web interface allows users to interact remotely and easily. P
 With the simple and poweful persistency feature, easily recover and continue the business after unexpected system failures.
 Optimize the resource usage and make clever desicisons to complete the job in time and successfull manner.
 
-Visit [www.tlos.com.tr](http://www.tlos.com.tr/) for more info.
+Visit [www.tlos.com.tr](http://www.tlos.com.tr/) and [User Guide](https://likyateknoloji.atlassian.net/wiki/spaces/DT1) for more info.
