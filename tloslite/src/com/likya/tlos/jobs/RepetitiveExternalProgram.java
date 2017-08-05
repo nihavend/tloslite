@@ -151,7 +151,7 @@ public class RepetitiveExternalProgram extends Job {
 				
 				jobKey = getJobProperties().getKey().toString();
 
-				if (!(getJobProperties().isAutoRetry() && wdtCounter > 0)) {
+				if (getJobProperties().getTimeout() > 0 && !(getJobProperties().isAutoRetry() && wdtCounter > 0)) {
 					watchDogTimer = new WatchDogTimer(this, getJobProperties().getKey().toString(), Thread.currentThread(), getJobProperties().getTimeout());
 					watchDogTimer.setName(jobKey + ".WatchDogTimer.id." + watchDogTimer.getId()); //$NON-NLS-1$
 					watchDogTimer.start();

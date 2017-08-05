@@ -77,7 +77,7 @@ public abstract class BaseProgram extends Job {
 				getJobProperties().setRecentWorkDuration(getJobProperties().getWorkDuration());
 				getJobProperties().setRecentWorkDurationNumeric(getJobProperties().getWorkDurationNumeric());
 
-				if (!(getJobProperties().isAutoRetry() && wdtCounter > 0)) {
+				if (getJobProperties().getTimeout() > 0 && !(getJobProperties().isAutoRetry() && wdtCounter > 0)) {
 					watchDogTimer = new WatchDogTimer(this, getJobProperties().getKey().toString(), Thread.currentThread(), getJobProperties().getTimeout());
 					watchDogTimer.setName(getJobProperties().getKey().toString() + ".WatchDogTimer.id." + watchDogTimer.getId()); //$NON-NLS-1$
 					watchDogTimer.start();

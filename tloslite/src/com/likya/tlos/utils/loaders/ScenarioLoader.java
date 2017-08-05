@@ -289,7 +289,10 @@ public class ScenarioLoader {
 					logFileName = tlosParameters.getGlobalLogPath() + File.separator + logFileName; //$NON-NLS-1$
 				}
 
-				int timeoutValue = 1000 * Integer.parseInt(propertiesList.get(TIME_OUT));
+				int timeoutValue = 0; // 0 demek watchdogtimer disable edilecek demek.
+				if(propertiesList.get(TIME_OUT) != null && Integer.parseInt(propertiesList.get(TIME_OUT)) > 0) {
+					timeoutValue = 1000 * Integer.parseInt(propertiesList.get(TIME_OUT));
+				}
 
 				// Parse autoRetryInfo
 				AutoRetryInfo autoRetryInfo = ScenarioLoaderUtil.getAutoRetryInfo(propertiesList.get(AUOT_RETRY), isManuel, isStandart);
