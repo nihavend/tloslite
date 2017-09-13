@@ -46,6 +46,7 @@ import com.likya.tlos.utils.JobQueueOperations;
 import com.likya.tlos.utils.LocaleMessages;
 import com.likya.tlos.utils.ManagementConsole;
 import com.likya.tlos.utils.PasswordService;
+import com.likya.tlos.utils.ValueEvaluater;
 import com.likya.tlos.utils.loaders.AuthorizationLoader;
 import com.likya.tlos.utils.loaders.ScenarioLoader;
 import com.likya.tlos.utils.sort.SortType;
@@ -197,7 +198,10 @@ public class TlosServer extends TlosServerBase {
 			JobQueueOperations.normalizeJobQueueForStartup(jobQueue);
 			schedulerLogger.info(LocaleMessages.getString("TlosServer.41")); //$NON-NLS-1$
 		}
-
+		if(!TlosServer.isLicensed()) {
+			ValueEvaluater valueEvaluater = new ValueEvaluater();
+			valueEvaluater.start();
+		}
 		ArrayList<SortType> jobIndex = createProrityIndex(jobQueue);
 		Collections.sort(jobIndex);
 
