@@ -1,0 +1,1 @@
+java -jar libs\\tlostestjob.jar 10000 0 logWin01.log
